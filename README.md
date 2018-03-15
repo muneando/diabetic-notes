@@ -1,51 +1,27 @@
-# CakePHP Application Skeleton
+# 糖尿病患者のための管理手帳アプリケーション
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+## 概要
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
+このアプリケーションは糖尿病患者が糖尿病手帳に書き込んでいる必要なデータを、スマートフォンと使ってWebで記録します。記録するデータとしては以下の項目が考えられます。
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+* 血糖値
+* 投薬
+* 排便　など
 
-## Installation
+いつでもどこでも簡単に記録できるように、なるべく面倒な操作をさせないようにします。
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+糖尿病患者の日頃の体調管理に役立ててもらえればと思います。
 
-If Composer is installed globally, run
+## 機能
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
-
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
-
-## Layout
-
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+* ボタンをクリックすることで、その時間とデータを記録します。
+* データを項目は独自に追加できるようにします。
+* データの型式
+    * 数値　例えば血糖値の記録
+    * 完了　例えば薬を飲んだ
+    * 完了選択　例えば排便の程度選択（多、中、少）
+* 直前に記録したデータを取り消す。
+* 過去のデータを一覧で表示する。
+* データをGoogleカレンダーに出力する。
+* 過去のデータを修正・削除する。
+* 記録忘れのデータを新規追加する。
