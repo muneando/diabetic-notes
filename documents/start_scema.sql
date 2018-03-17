@@ -36,18 +36,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `diabetic-notes`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `diabetic-notes`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `diabetic-notes`.`notes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `diabetic-notes`.`notes` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `users_id` INT NOT NULL,
+  `my_categories_id` INT NOT NULL,
   `created` DATETIME NULL,
   `modified` DATETIME NULL,
-  `my_categories_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_notes_categories1_idx` (`my_categories_id` ASC),
+  INDEX `fk_notes_users1_idx` (`users_id` ASC),
   CONSTRAINT `fk_notes_categories1`
     FOREIGN KEY (`my_categories_id`)
     REFERENCES `diabetic-notes`.`my_categories` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_notes_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `diabetic-notes`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
