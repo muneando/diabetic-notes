@@ -6,17 +6,12 @@ class Initial extends AbstractMigration
     public function up()
     {
 
-        $this->table('done_notes', ['id' => false, 'primary_key' => ['']])
+        $this->table('done_notes', ['id' => false, 'primary_key' => ['notes_id']])
             ->addColumn('notes_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
                 'null' => false,
             ])
-            ->addIndex(
-                [
-                    'notes_id',
-                ]
-            )
             ->create();
 
         $this->table('my_categories')
@@ -85,7 +80,7 @@ class Initial extends AbstractMigration
             )
             ->create();
 
-        $this->table('numeric_value_notes', ['id' => false, 'primary_key' => ['']])
+        $this->table('numeric_value_notes', ['id' => false, 'primary_key' => ['notes_id']])
             ->addColumn('notes_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
@@ -96,14 +91,9 @@ class Initial extends AbstractMigration
                 'limit' => 11,
                 'null' => false,
             ])
-            ->addIndex(
-                [
-                    'notes_id',
-                ]
-            )
             ->create();
 
-        $this->table('select_notes', ['id' => false, 'primary_key' => ['']])
+        $this->table('select_notes', ['id' => false, 'primary_key' => ['notes_id']])
             ->addColumn('notes_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
@@ -114,14 +104,9 @@ class Initial extends AbstractMigration
                 'limit' => 11,
                 'null' => false,
             ])
-            ->addIndex(
-                [
-                    'notes_id',
-                ]
-            )
             ->create();
 
-        $this->table('string_value_notes', ['id' => false, 'primary_key' => ['']])
+        $this->table('string_value_notes', ['id' => false, 'primary_key' => ['notes_id']])
             ->addColumn('notes_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
@@ -132,11 +117,6 @@ class Initial extends AbstractMigration
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addIndex(
-                [
-                    'notes_id',
-                ]
-            )
             ->create();
 
         $this->table('users')
